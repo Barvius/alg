@@ -1,4 +1,4 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "stdio.h"
 #include "math.h"
 #include "conio.h"
@@ -8,13 +8,13 @@ void main() {
 	setlocale(0, "rus");
 	int c, count = 0;
 	float f, dx, xn, xk, x, da ,an ,ak ,a ,db ,bn ,bk ,b;
-	printf("ВведитеC\n");
+	printf("Р’РІРµРґРёС‚РµC\n");
 	scanf_s("%d",&c);
-	printf("\nВведите An Ak Da\n");
+	printf("\nР’РІРµРґРёС‚Рµ An Ak Da\n");
 	scanf_s("%f %f %f", &an, &ak, &da);
-	printf("\nВведите Bn Bk Db\n");
+	printf("\nР’РІРµРґРёС‚Рµ Bn Bk Db\n");
 	scanf_s("%f %f %f", &bn, &bk, &db);
-	printf("\nВведите Xn Xk Dx\n");
+	printf("\nР’РІРµРґРёС‚Рµ Xn Xk Dx\n");
 	scanf_s("%f %f %f", &xn, &xk, &dx);
 	printf("\nA\t\t B\t\t C\t\t X\t\t F\n\n");
 	for (b = bn; b <= bk; b += db) {
@@ -28,7 +28,7 @@ void main() {
 						f = (1.0 + c) / x;
 					} else {
 						if (c == 0) {
-							printf("%f\t %f\t %d\t %f\t Нет решений\n", a, b, c, x);
+							printf("%f\t %f\t %d\t %f\t РќРµС‚ СЂРµС€РµРЅРёР№\n", a, b, c, x);
 							x += dx;
 							continue;
 						} else {
@@ -44,6 +44,6 @@ void main() {
 			a += da;
 			} while (a <= ak);
 	}
-	printf("Количество F>0 = %d\n", count);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ F>0 = %d\n", count);
 	_getch();
 }

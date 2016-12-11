@@ -1,4 +1,4 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "stdlib.h"
 #include "stdio.h"
 #include "conio.h"
@@ -9,7 +9,7 @@ void main() {
 	//const int m_len = 45;
 	int len=0, d;
 	do {
-		printf_s("Ввести размер массива\n");
+		printf_s("Р’РІРµСЃС‚Рё СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°\n");
 		scanf_s("%d", &len);
 	} while (len < 1 || len>46);
 	const int m_len = len;
@@ -36,6 +36,6 @@ void main() {
 		num_end = i;
 		num_start = i + 1 - count;
 	}
-	printf("\nНулей максимально подряд: %d\nНачиная с: %d\nЗаканчивая: %d",last_count,num_start,num_end);
+	printf("\nРќСѓР»РµР№ РјР°РєСЃРёРјР°Р»СЊРЅРѕ РїРѕРґСЂСЏРґ: %d\nРќР°С‡РёРЅР°СЏ СЃ: %d\nР—Р°РєР°РЅС‡РёРІР°СЏ: %d",last_count,num_start,num_end);
 	_getch();
 }
