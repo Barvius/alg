@@ -1,4 +1,4 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "stdio.h"
 #include "math.h"
 #include "conio.h"
@@ -8,9 +8,9 @@ void main() {
 	setlocale(0, "rus");
 	int a, b, c, count=0;
 	float f, dx, xn, xk, x;
-	printf("Введите A B C\n");
+	printf("Р’РІРµРґРёС‚Рµ A B C\n");
 	scanf_s("%d %d %d", &a, &b, &c);
-	printf("\nВведите Xn Xk Dx\n");
+	printf("\nР’РІРµРґРёС‚Рµ Xn Xk Dx\n");
 	scanf_s("%f %f %f", &xn, &xk, &dx);
 	printf("\nA\t B\t C\t X\t\t F\n\n");
 	x = xn;
@@ -21,7 +21,7 @@ void main() {
 			f = (1.0 + c) / x;
 		} else {
 			if (c == 0) {
-				printf("%d\t %d\t %d\t %f\t Нет решений\n", a, b, c, x);
+				printf("%d\t %d\t %d\t %f\t РќРµС‚ СЂРµС€РµРЅРёР№\n", a, b, c, x);
 				x += dx;
 				continue;
 			} else {
@@ -34,6 +34,6 @@ void main() {
 			count++;
 		}
 	} while (x <= xk);
-	printf("Количество F>0 = %d\n", count);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ F>0 = %d\n", count);
 	_getch();
 }

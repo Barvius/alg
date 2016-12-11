@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "stdio.h"
 #include "math.h"
 #include "conio.h"
@@ -8,9 +8,9 @@ void main() {
 	setlocale(0, "rus");
 	int a, b, c, count=0;
 	float f, dx, xn, xk,x,e=0;
-	printf("Ââåäèòå A B C\n");
+	printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ A B C\n");
 	scanf_s("%d %d %d", &a, &b, &c);
-	printf("\nÂâåäèòå Xn Xk Dx\n");
+	printf("\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Xn Xk Dx\n");
 	scanf_s("%f %f %f", &xn, &xk, &dx);
 	printf("\nA\t B\t C\t X\t\t F\n\n");
 	if (xn>xk) {
@@ -26,7 +26,7 @@ void main() {
 				f = (1.0 + c) / x;
 			} else {
 				if (c == 0) {
-					printf("%d\t %d\t %d\t %f\t Íåò ðåøåíèé\n", a, b, c, x);
+					printf("%d\t %d\t %d\t %f\t ÐÐµÑ‚ Ñ€ÐµÑˆÐµÐ½Ð¸Ð¹\n", a, b, c, x);
 					continue;
 				} else {
 					f = -(pow(x, 2)) / c;
@@ -37,6 +37,6 @@ void main() {
 				count++;
 			}
 		}
-		printf("Êîëè÷åñòâî F>0 = %d\n", count);
+		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ F>0 = %d\n", count);
 	_getch();
 }
