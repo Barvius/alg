@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "stdio.h"
 #include "conio.h"
 #include "locale.h"
@@ -8,7 +8,7 @@ void main() {
 	int x[3] = { 0 }, y[3] = { 0 },i;
 	float a, b,a1,b1,d;
 	for ( i = 0; i <= 3; i++){
-		printf("Ââåñòè êîîðäèíàòû %d òî÷êè Õ Ó\n",i+1);
+		printf("Ð’Ð²ÐµÑÑ‚Ð¸ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ %d Ñ‚Ð¾Ñ‡ÐºÐ¸ Ð¥ Ð£\n",i+1);
 		scanf_s("%d %d", &x[i], &y[i]);
 	}
 	a = y[1] - y[0];
@@ -17,9 +17,9 @@ void main() {
 	b1 = x[3] - x[2];
 	d = a*b1 - b*a1;
 	if (d==0){
-		printf("Ïðÿìûå ïàðàëëåëüíû %f",d);
+		printf("ÐŸÑ€ÑÐ¼Ñ‹Ðµ Ð¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»ÑŒÐ½Ñ‹ %f",d);
 	} else {
-		printf("Íå ïàðàëëåëüíû %f", d);
+		printf("ÐÐµ Ð¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»ÑŒÐ½Ñ‹ %f", d);
 	}
 	
 	_getch();

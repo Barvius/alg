@@ -1,4 +1,4 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "stdio.h"
 #include "math.h"
 #include "conio.h"
@@ -15,7 +15,7 @@ void main() {
 		f = (1.0 + c) / x;
 	} else {
 		if (c==0) {
-			printf("Нет решений\n"); goto toend;
+			printf("РќРµС‚ СЂРµС€РµРЅРёР№\n"); goto toend;
 		} else {
 			f = -(pow(x, 2)) / c;
 		}

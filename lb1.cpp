@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "stdio.h"
 #include "math.h"
 #include "conio.h"

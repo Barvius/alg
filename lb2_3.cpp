@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "stdio.h"
 #include "conio.h"
 #include "locale.h"
@@ -9,7 +9,7 @@ void main() {
 	float a[6] = { 0 }, b[6] = { 0 }, d[3] = { 1 };
 	int input[3][4] = { {1,2,3,4},{ 1,3,2,4 },{ 1,4,2,3 } };
 	for (i = 0; i <= 3; i++) {
-		printf("Ââåñòè êîîðäèíàòû %d òî÷êè Õ Ó\n", i + 1);
+		printf("Ð’Ð²ÐµÑÑ‚Ð¸ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ %d Ñ‚Ð¾Ñ‡ÐºÐ¸ Ð¥ Ð£\n", i + 1);
 		scanf_s("%d %d", &x[i], &y[i]);
 	}
 	a[0] = y[1] - y[0];
@@ -29,7 +29,7 @@ void main() {
 		n += 2;
 		j += 2;
 		if (d[i] == 0) {
-			printf("Ïðÿìûå ïðîõîäÿùèå ÷åðåç òî÷êè (%d,%d) (%d,%d) ïàðàëëåëüíû \n", input[i][0], input[i][1], input[i][2], input[i][3]);
+			printf("ÐŸÑ€ÑÐ¼Ñ‹Ðµ Ð¿Ñ€Ð¾Ñ…Ð¾Ð´ÑÑ‰Ð¸Ðµ Ñ‡ÐµÑ€ÐµÐ· Ñ‚Ð¾Ñ‡ÐºÐ¸ (%d,%d) (%d,%d) Ð¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»ÑŒÐ½Ñ‹ \n", input[i][0], input[i][1], input[i][2], input[i][3]);
 		}
 	}
 	_getch();
