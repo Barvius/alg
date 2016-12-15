@@ -8,14 +8,16 @@
 #include "stdlib.h"
 #include "conio.h"
 #include "locale.h"
-#include < string.h >
-#include <ctype.h>
+#include "string.h"
+
 void main(){
 	setlocale(0,"rus");
 	FILE *f_in, *f_out;
-	char *ykaz, a[100], b[100], znak[] = { '.', ',', ':' };
+	char a[100], b[100], znak[] = { '.', ',', ':' };
+	char *ykaz ;
 	int i, p, str_count, vs_vt_count, vs_vs_count, s_max, s_max_addr;
 	i = p = str_count = vs_vt_count = vs_vs_count = s_max = s_max_addr = 0;
+
 	if (!(f_in = fopen("text.txt", "r"))) {
 		printf("Файл не найден....\nСоздаю...\t[ok]\n");
 		f_in = fopen("text.txt", "w");
