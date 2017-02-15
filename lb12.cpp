@@ -1,4 +1,5 @@
-// lb12.cpp: определяет точку входа для консольного приложения.
+п»ї// lb12.cpp: РѕРїСЂРµРґРµР»СЏРµС‚ С‚РѕС‡РєСѓ РІС…РѕРґР° РґР»СЏ РєРѕРЅСЃРѕР»СЊРЅРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ.
+//
 //
 
 #include "stdafx.h"
@@ -25,8 +26,8 @@ void DelRecords(Student);
 void PostMenuHandler();
 
 void PostMenuHandler() {
-	printf("Для возврата в главное меню нажмите m\n");
-	printf("Для выхода нажмите q\n");
+	printf("Р”Р»СЏ РІРѕР·РІСЂР°С‚Р° РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ m\n");
+	printf("Р”Р»СЏ РІС‹С…РѕРґР° РЅР°Р¶РјРёС‚Рµ q\n");
 	while (true) {
 		switch (_getch()) {
 		case 'm':
@@ -45,7 +46,7 @@ void PostMenuHandler() {
 	FILE *f;
 	int i=1;
 	if (!(f = fopen("db.txt", "r"))) {
-		printf("Файл не найден....\n");
+		printf("Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ....\n");
 	} else {
 		while (fscanf(f, "%d %s %s %s %d %d %d %d %d\n", &student[i].id, student[i].LastName, student[i].FirstName, student[i].Group, &student[i].score[0], &student[i].score[1], &student[i].score[2], &student[i].score[3], &student[i].score[4]) != EOF) {
 			i++;
@@ -58,7 +59,7 @@ void PostMenuHandler() {
 	 system("cls");
 	 int i = 1;
 	 printf("+---+-----------------+----------+--------+---+---+---+---+---+\n");
-	 printf("|ID | Фамилия         | Инициалы | Группа |                   |\n");
+	 printf("|ID | Р¤Р°РјРёР»РёСЏ         | РРЅРёС†РёР°Р»С‹ | Р“СЂСѓРїРїР° |                   |\n");
 	 while (student[i].id){
 		 printf("+---+-----------------+----------+--------+---+---+---+---+---+\n");
 		 printf("|%-2d | %-15s | %-8s | %-6s | %d | %d | %d | %d | %d |\n", student[i].id, student[i].LastName, student[i].FirstName, student[i].Group, student[i].score[0], student[i].score[1], student[i].score[2], student[i].score[3], student[i].score[4]);
@@ -70,12 +71,12 @@ void PostMenuHandler() {
 
  void DelRecords(Student student[]) {
 	 system("cls");
-	 printf("Удаление записи\n");
+	 printf("РЈРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё\n");
 	 printf("-----------------------\n");
 	 FILE *f;
 	 int i = 1, id, rm_row, row;
 	 ShowAllRecords(student);
-	 printf("Введите ID удаляемой записи\n");
+	 printf("Р’РІРµРґРёС‚Рµ ID СѓРґР°Р»СЏРµРјРѕР№ Р·Р°РїРёСЃРё\n");
 	 scanf("%d", &id);
 	 i = 1;
 	 while (student[i].id) {
@@ -85,7 +86,7 @@ void PostMenuHandler() {
 		 i++;
 	 }
 	 row = i;
-	 // 10 ЗАМЕНИТЬ!!!!
+	 // 10 Р—РђРњР•РќРРўР¬!!!!
 	 for ( i = rm_row; i < row; i++){
 		 student[i].id = student[i + 1].id;
 		 for (int j = 0; j < 50;j++) {
@@ -112,7 +113,7 @@ void PostMenuHandler() {
 
  void AddRecords(Student student[]) {
 	 system("cls");
-	 printf("Добавление новой записи\n");
+	 printf("Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕР№ Р·Р°РїРёСЃРё\n");
 	 printf("-----------------------\n");
 	 FILE *f;
 	 int i = 1;
@@ -120,21 +121,21 @@ void PostMenuHandler() {
 		 i++;
 	 }
 	 student[i].id = student[i-1].id + 1;
-	 printf("Фамилия:  ");
+	 printf("Р¤Р°РјРёР»РёСЏ:  ");
 	 scanf("%s50", student[i].LastName);
-	 printf("\nИнициалы:  ");
+	 printf("\nРРЅРёС†РёР°Р»С‹:  ");
 	 scanf("%s50", &student[i].FirstName);
-	 printf("\nГруппа:  ");
+	 printf("\nР“СЂСѓРїРїР°:  ");
 	 scanf("%s10", &student[i].Group);
-	 printf("\nПервая оценка:  ");
+	 printf("\nРџРµСЂРІР°СЏ РѕС†РµРЅРєР°:  ");
 	 scanf("%d", &student[i].score[0]);
-	 printf("\nВторая оценка:  ");
+	 printf("\nР’С‚РѕСЂР°СЏ РѕС†РµРЅРєР°:  ");
 	 scanf("%d", &student[i].score[1]);
-	 printf("\nТретья оценка:  ");
+	 printf("\nРўСЂРµС‚СЊСЏ РѕС†РµРЅРєР°:  ");
 	 scanf("%d", &student[i].score[2]);
-	 printf("\nЧетвертая оценка:  ");
+	 printf("\nР§РµС‚РІРµСЂС‚Р°СЏ РѕС†РµРЅРєР°:  ");
 	 scanf("%d", &student[i].score[3]);
-	 printf("\nПятая оценка:  ");
+	 printf("\nРџСЏС‚Р°СЏ РѕС†РµРЅРєР°:  ");
 	 scanf("%d", &student[i].score[4]);
 
 	 i = 1;
@@ -150,7 +151,7 @@ void PostMenuHandler() {
 	 system("cls");
 	 Student student[10];
 	 ReadDb(student);
-	 printf("Выберите действие\nl - Отобразить все записи\na - Добавить запись\nd - Удалить запись");
+	 printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ\nl - РћС‚РѕР±СЂР°Р·РёС‚СЊ РІСЃРµ Р·Р°РїРёСЃРё\na - Р”РѕР±Р°РІРёС‚СЊ Р·Р°РїРёСЃСЊ\nd - РЈРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ");
 	 printf("\n");
 	 while (true){
 		 switch (_getch()) {
