@@ -9,11 +9,11 @@
 */
 
 #include "stdafx.h"
-#include "stdlib.h"
-#include "stdio.h"
-#include "conio.h"
-#include "string.h"
-#include "locale.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#include <locale.h>
 #include <windows.h>
 
 typedef struct {
@@ -26,7 +26,7 @@ typedef struct {
 
 void MainMenu();
 void ReadDB(Student student[]);
-void ShowAllRecords(Student student[], int rows_db);
+void ShowRecords(Student student[], int rows_db);
 void AddRecords();
 void DelRecords(Student student[], int rows_db);
 void PostMenuHandler();
@@ -45,8 +45,6 @@ void PostMenuHandler() {
 			break;
 		case 'q':
 			exit(0);
-			break;
-		default:
 			break;
 		}
 	}
@@ -68,7 +66,7 @@ void ReadDb(Student student[]) {
 	}
 }
 
-void ShowAllRecords(Student student[],int rows_db) {
+void ShowRecords(Student student[],int rows_db) {
 	system("cls");
 	printf("Список студентов\n");
 	printf("------------------------\n");
@@ -90,10 +88,10 @@ void DelRecords(Student student[], int rows_db) {
 	printf("---------------\n");
 	FILE *f;
 	int i = 0, rm_row;
-	ShowAllRecords(student, rows_db);
+	ShowRecords(student, rows_db);
 	printf("Введите ID удаляемой записи\n");
 	scanf("%d", &rm_row);
-	for (i = rm_row; i < rows_db; i++) {
+	for (i = rm_row; i < rows_db - 1; i++) {
 		student[i] = student[i + 1];
 	}
 	f = fopen("db.txt", "w");
@@ -104,37 +102,32 @@ void DelRecords(Student student[], int rows_db) {
 	}
 	fclose(f);
 	printf("Запись с ID %d устпешно удалена\n", rm_row);
-
 }
 
 void AddRecords() {
 	system("cls");
-	char LastName[20] = { NULL };
-	char FirstName[3] = { NULL };
-	char Group[6] = { NULL };
-	int score[5] = { NULL };
-
+	Student NewStudent;
 	FILE *f;
 	printf("Добавление новой записи\n");
 	printf("-----------------------\n");
 	printf("Фамилия:  ");
-	scanf("%s50", LastName);
+	scanf("%s20", NewStudent.LastName);
 	printf("\nИнициалы:  ");
-	scanf("%s50", FirstName);
+	scanf("%s3", NewStudent.FirstName);
 	printf("\nГруппа:  ");
-	scanf("%s10",Group);
+	scanf("%s6", NewStudent.Group);
 	printf("\nПервая оценка:  ");
-	scanf("%d", &score[0]);
+	scanf("%d", &NewStudent.score[0]);
 	printf("\nВторая оценка:  ");
-	scanf("%d", &score[1]);
+	scanf("%d", &NewStudent.score[1]);
 	printf("\nТретья оценка:  ");
-	scanf("%d", &score[2]);
+	scanf("%d", &NewStudent.score[2]);
 	printf("\nЧетвертая оценка:  ");
-	scanf("%d", &score[3]);
+	scanf("%d", &NewStudent.score[3]);
 	printf("\nПятая оценка:  ");
-	scanf("%d", &score[4]);
+	scanf("%d", &NewStudent.score[4]);
 	f = fopen("db.txt", "at");
-	fprintf(f, "%s %s %s %d %d %d %d %d\n", LastName, FirstName, Group, score[0], score[1], score[2], score[3], score[4]);
+	fprintf(f, "%s %s %s %d %d %d %d %d\n", NewStudent.LastName, NewStudent.FirstName, NewStudent.Group, NewStudent.score[0], NewStudent.score[1], NewStudent.score[2], NewStudent.score[3], NewStudent.score[4]);
 	fclose(f);
 	printf("\nЗапись успешно добавлена\n");
 }
@@ -144,7 +137,7 @@ void ShowFiltredList(Student *SortStudent,int rows_db) {
 	Student TmpStudent;
 	while (fl) {
 		fl = 0;
-		for (int i = 0; i < rows_db - 1; i++) {
+		for (int i = 0; i < rows_db - 1 ; i++) {
 			if (strcmp(SortStudent[i].Group, SortStudent[i + 1].Group) > 0) {
 				fl = 1;
 				TmpStudent = SortStudent[i];
@@ -153,7 +146,7 @@ void ShowFiltredList(Student *SortStudent,int rows_db) {
 			}
 		}
 	}
-	ShowAllRecords(SortStudent, rows_db);
+	ShowRecords(SortStudent, rows_db);
 }
 
 void ShowGodStudents(Student student[],int rows_db) {
@@ -168,7 +161,7 @@ void ShowGodStudents(Student student[],int rows_db) {
 		i++;
 	}
 	if (j) {
-		i = 1;
+		i = 0;
 		printf("+----------------------+--------+\n");
 		printf("| Фамилия              | Группа |\n");
 		while (i < rows_db) {
@@ -204,8 +197,8 @@ int AllRows() {
 
 void MainMenu() {
 	system("cls");
-	Student *student = new Student[AllRows()];
 	int rows_db = AllRows();
+	Student *student = new Student[rows_db];
 	ReadDb(student);
 	printf("Выберите действие:\n");
 	printf("------------------\n");
@@ -214,11 +207,12 @@ void MainMenu() {
 	printf("d - Удалить запись\n");
 	printf("s - Показать товарищей с средним баллом > 4\n");
 	printf("f - Сортировка по названию группы\n");
+	printf("q - Выход\n");
 	printf("\n");
 	while (true) {
 		switch (_getch()) {
 		case 'l':
-			ShowAllRecords(student,rows_db);
+			ShowRecords(student,rows_db);
 			PostMenuHandler();
 			break;
 		case 'a':
@@ -240,8 +234,6 @@ void MainMenu() {
 		case 'q':
 			exit(0);
 			break;
-		default:
-			break;
 		}
 	}
 
@@ -250,7 +242,7 @@ void MainMenu() {
 void main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	system("color 3");
+	system("color F0");
 	MainMenu();
 }
 
